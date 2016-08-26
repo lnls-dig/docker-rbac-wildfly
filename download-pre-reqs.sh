@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+set -a
+set -u
+
+SERVICE="$1"
+
 # Source env vars
-. ./env-vars.sh
+. ./env-vars.sh ${SERVICE}
 
 curl -o deploy/postgresql-${POSTGRES_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRES_VERSION}.jar
 

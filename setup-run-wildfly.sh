@@ -4,11 +4,13 @@ set -a
 set -e
 set -u
 
+SERVICE="$1"
+
 # Source env vars
-. ./env-vars.sh
+. ./env-vars.sh ${SERVICE}
 
 # Download prereqs
-./download-pre-reqs.sh
+./download-pre-reqs.sh ${SERVICE}
 
 # Build image
 ./build.sh ${POSTGRES_VERSION} ${RBAC_VERSION} ${RBAC_TARGET_WAR} ${RBAC_SERVICE_NAME} ${RBAC_DOCKER_IMAGE_NAME}
