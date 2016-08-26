@@ -8,7 +8,14 @@ RBAC_DOCKER_IMAGE_NAME="$5"
 
 # Copy files to correct locations, removing existing "wars"
 rm -f deploy/*.war
-cp ${RBAC_TARGET_WAR} deploy/
+if [ "${SERVICE}" == "rbac" ]; then
+    cp ${RBAC_TARGET_WAR} deploy/
+elif [ "${SERVICE}" == "mgmt" ]; then
+    cp ${RBAC_TARGET_WAR} deploy/
+else
+    echo "Unsupported service"
+    exit 0
+fi
 
 # Change this if your Host have a "sane" DNS like 168.192.1.1
 OPTNAMESERVER="echo nameserver 10.0.0.71 > /etc/resolv.conf \&\& \\\\"

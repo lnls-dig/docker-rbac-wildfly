@@ -13,7 +13,7 @@ SERVICE="$1"
 ./download-pre-reqs.sh ${SERVICE}
 
 # Build image
-./build.sh ${POSTGRES_VERSION} ${RBAC_VERSION} ${RBAC_TARGET_WAR} ${RBAC_SERVICE_NAME} ${RBAC_DOCKER_IMAGE_NAME}
+./build.sh ${POSTGRES_VERSION} ${RBAC_VERSION} ${RBAC_TARGET_WAR} ${RBAC_SERVICE_NAME} ${RBAC_DOCKER_IMAGE_NAME} ${SERVICE}
 
 # Create docker network
 ./create-net.sh ${NET_NAME}
