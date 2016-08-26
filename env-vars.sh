@@ -18,7 +18,7 @@ if [ "${SERVICE}" == "rbac" ]; then
     RBAC_VERSION=2.0.4
     RBAC_SERVICE_PATH=RBAC-AuthServices
     RBAC_SERVICE_NAME=auth-services
-    RBAC_DOCKER_IMAGE_NAME=rbac
+    RBAC_DOCKER_IMAGE_NAME=rbac-auth-services
 elif [ "${SERVICE}" == "mgmt" ]; then
     LOCAL_WILDFLY_PORT=8444
     LOCAL_ADMIN_PORT=9991
