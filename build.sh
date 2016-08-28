@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -a
+set -u
+set -e
+
 POSTGRES_VERSION="$1"
 RBAC_VERSION="$2"
 RBAC_TARGET_WAR="$3"
