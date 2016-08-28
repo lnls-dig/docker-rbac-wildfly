@@ -24,5 +24,5 @@ cd ..
 
 # Build Naming Convention tool
 cd ${RBAC_REPO}
-mvn install -Dmaven.test.skip=true
+mvn install
 cd ..
