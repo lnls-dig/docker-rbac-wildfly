@@ -34,7 +34,7 @@ else
     exit 0
 fi
 
-NET_NAME="postgres"
+NET_NAME="postgres-rbac"
 DNS_IP="10.0.0.72"
 WILDFLY_PORT=8443
 ADMIN_PORT=9990
