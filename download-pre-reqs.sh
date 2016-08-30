@@ -17,6 +17,11 @@ git clone --branch=${RBAC_VERSION_REPO} https://bitbucket.org/europeanspallation
 # Clone wait-for-it
 git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it scripts/${WAIT_FOR_IT_REPO}
 
+# Apply patches
+cd ${RBAC_REPO}
+git am ../patches/rbac/*
+cd ..
+
 # Build Java Config
 cd ${ESS_JAVA_CONFIG_REPO}
 mvn install
