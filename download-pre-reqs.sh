@@ -29,5 +29,5 @@ cd ..
 
 # Build Naming Convention tool
 cd ${RBAC_REPO}
-mvn install
+mvn clean && mvn install
 cd ..
