@@ -8,7 +8,7 @@ SERVICE="$1"
 # Source env vars
 . ./env-vars.sh ${SERVICE}
 
-curl -o deploy/postgresql-${POSTGRES_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRES_VERSION}.jar
+curl -o postgresql-${POSTGRES_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRES_VERSION}.jar
 
 # Clone ESS java config
 git clone --branch=${ESS_JAVA_CONFIG_VERSION} https://bitbucket.org/europeanspallationsource/ess-java-config ${ESS_JAVA_CONFIG_REPO}
@@ -29,5 +29,5 @@ cd ..
 
 # Build Naming Convention tool
 cd ${RBAC_REPO}
-mvn clean && mvn install
+mvn clean && mvn install -Dmaven.test.skip=true
 cd ..
