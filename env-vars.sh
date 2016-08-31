@@ -14,9 +14,9 @@ RBAC_SERVICE_NAME=auth-services
 RBAC_DOCKER_IMAGE_NAME=rbac-auth-services
 DB_NAME=rbac-auth-services-postgres
 DB_PORT=5432
+NET_NAME="postgres-rbac"
 
 if [ "${SERVICE}" == "rbac" ]; then
-    NET_NAME="postgres-rbac-auth-services"
     LOCAL_WILDFLY_PORT=8443
     LOCAL_ADMIN_PORT=9990
 
@@ -28,7 +28,6 @@ if [ "${SERVICE}" == "rbac" ]; then
     DB_NAME=rbac-auth-services-postgres
     DB_PORT=5432
 elif [ "${SERVICE}" == "mgmt" ]; then
-    NET_NAME="postgres-rbac-management-studio"
     LOCAL_WILDFLY_PORT=8444
     LOCAL_ADMIN_PORT=9991
 
