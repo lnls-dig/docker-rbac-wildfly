@@ -12,8 +12,11 @@ RBAC_VERSION=2.0.4
 RBAC_SERVICE_PATH=RBAC-AuthServices
 RBAC_SERVICE_NAME=auth-services
 RBAC_DOCKER_IMAGE_NAME=rbac-auth-services
+DB_NAME=rbac-auth-services-postgres
+DB_PORT=5432
 
 if [ "${SERVICE}" == "rbac" ]; then
+    NET_NAME="postgres-rbac-auth-services"
     LOCAL_WILDFLY_PORT=8443
     LOCAL_ADMIN_PORT=9990
 
@@ -21,7 +24,11 @@ if [ "${SERVICE}" == "rbac" ]; then
     RBAC_SERVICE_PATH=RBAC-AuthServices
     RBAC_SERVICE_NAME=auth-services
     RBAC_DOCKER_IMAGE_NAME=rbac-auth-services
+
+    DB_NAME=rbac-auth-services-postgres
+    DB_PORT=5432
 elif [ "${SERVICE}" == "mgmt" ]; then
+    NET_NAME="postgres-rbac-management-studio"
     LOCAL_WILDFLY_PORT=8444
     LOCAL_ADMIN_PORT=9991
 
@@ -29,12 +36,14 @@ elif [ "${SERVICE}" == "mgmt" ]; then
     RBAC_SERVICE_PATH=RBAC-ManagementStudio
     RBAC_SERVICE_NAME=management-studio
     RBAC_DOCKER_IMAGE_NAME=rbac-management-studio
+
+    DB_NAME=rbac-management-studio-postgres
+    DB_PORT=5432
 else
     echo "Unsupported service"
     exit 0
 fi
 
-NET_NAME="postgres-rbac"
 DNS_IP="10.0.0.72"
 WILDFLY_PORT=8443
 ADMIN_PORT=9990
