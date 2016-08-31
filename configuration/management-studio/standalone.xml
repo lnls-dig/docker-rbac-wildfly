@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
                 <datasource jta="false" jndi-name="java:/rbac" pool-name="RbacDS" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:postgresql://rbac-postgres:5432/rbac</connection-url>
+                    <connection-url>jdbc:postgresql://rbac-management-studio-postgres:5432/rbac</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
                     <!-- <driver>postgresql</driver> -->
                     <driver>postgresql-9.4.1207.jar</driver>
@@ -392,7 +392,7 @@
             <server name="default-server">
                 <http-listener name="default" socket-binding="http"/>
                 <https-listener name="https" socket-binding="https" security-realm="UndertowRealm"/>
-                <host name="rbac" alias="rbac-auth-services">
+                <host name="rbac" alias="localhost">
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
                 </host>
