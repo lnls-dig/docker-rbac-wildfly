@@ -1,0 +1,26 @@
+From 8cc53ec0212b13304fd9de1798f57ca78f4725d7 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 2 Sep 2016 13:54:03 -0300
+Subject: [PATCH 2/3] RBAC-Persistence-Model: add new NamedQuery for selecting
+ Resources
+
+---
+ .../src/main/java/se/esss/ics/rbac/datamodel/Permission.java            | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/RBAC-Persistence-Model/src/main/java/se/esss/ics/rbac/datamodel/Permission.java b/RBAC-Persistence-Model/src/main/java/se/esss/ics/rbac/datamodel/Permission.java
+index f5348c8..cce8138 100644
+--- a/RBAC-Persistence-Model/src/main/java/se/esss/ics/rbac/datamodel/Permission.java
++++ b/RBAC-Persistence-Model/src/main/java/se/esss/ics/rbac/datamodel/Permission.java
+@@ -71,6 +71,8 @@ import se.esss.ics.rbac.Util;
+                 query = "SELECT p FROM se.esss.ics.rbac.datamodel.Permission p ORDER BY p.resource.name, p.name"),
+         @NamedQuery(name = "Permission.selectNamesByResource",
+                 query = "SELECT p.name FROM se.esss.ics.rbac.datamodel.Permission p WHERE p.resource = :resource"),
++        @NamedQuery(name = "Permission.findByResourceEntity",
++                query = "SELECT p FROM se.esss.ics.rbac.datamodel.Permission p WHERE p.resource = :resource"),
+         @NamedQuery(name = "Permission.findByName",
+                 query = "SELECT p FROM se.esss.ics.rbac.datamodel.Permission p"
+                         + " WHERE p.name = :name AND p.resource = :resource"),
+-- 
+1.9.1
+

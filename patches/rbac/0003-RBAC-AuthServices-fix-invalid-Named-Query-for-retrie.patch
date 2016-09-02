@@ -1,0 +1,33 @@
+From f0139d2cf30adf482bb08697deed8b54e7306fe6 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 2 Sep 2016 13:54:30 -0300
+Subject: [PATCH 3/3] RBAC-AuthServices: fix invalid Named Query for retrieving
+ the Resource
+
+Previously, just the name was retrieved by the query,
+resulting in an exception as the name is a String
+rather than a Resource Object.
+---
+ .../src/main/java/se/esss/ics/rbac/logic/GeneralEJB.java            | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/RBAC-AuthServices/src/main/java/se/esss/ics/rbac/logic/GeneralEJB.java b/RBAC-AuthServices/src/main/java/se/esss/ics/rbac/logic/GeneralEJB.java
+index 8f15387..a34c5f3 100644
+--- a/RBAC-AuthServices/src/main/java/se/esss/ics/rbac/logic/GeneralEJB.java
++++ b/RBAC-AuthServices/src/main/java/se/esss/ics/rbac/logic/GeneralEJB.java
+@@ -213,9 +213,9 @@ public class GeneralEJB implements Serializable {
+         if (resources.isEmpty()) {
+             throw new InvalidResourceException(null, resourceName, Messages.getString(
+                     Messages.NO_RESOURCE, resourceName));
+-        } 
+-        
+-        List<Permission> permissions = entityManager.createNamedQuery("Permission.selectNamesByResource", 
++        }
++
++        List<Permission> permissions = entityManager.createNamedQuery("Permission.findByResourceEntity",
+                 Permission.class).setParameter("resource", resources.get(0)).getResultList();
+         Map<String, Boolean> perms = new LinkedHashMap<>(permissions.size());
+         for (Permission p : permissions) {
+-- 
+1.9.1
+
