@@ -17,8 +17,8 @@ DB_PORT=5432
 NET_NAME="postgres-rbac"
 
 if [ "${SERVICE}" == "rbac" ]; then
-    LOCAL_WILDFLY_PORT=8443
-    LOCAL_ADMIN_PORT=9990
+    LOCAL_WILDFLY_PORT=8444
+    LOCAL_ADMIN_PORT=9991
 
     RBAC_VERSION=2.0.4
     RBAC_SERVICE_PATH=RBAC-AuthServices
@@ -28,8 +28,8 @@ if [ "${SERVICE}" == "rbac" ]; then
     DB_NAME=rbac-auth-services-postgres
     DB_PORT=5432
 elif [ "${SERVICE}" == "mgmt" ]; then
-    LOCAL_WILDFLY_PORT=8444
-    LOCAL_ADMIN_PORT=9991
+    LOCAL_WILDFLY_PORT=8445
+    LOCAL_ADMIN_PORT=9992
 
     RBAC_VERSION=2.1.6
     RBAC_SERVICE_PATH=RBAC-ManagementStudio
