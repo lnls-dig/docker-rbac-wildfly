@@ -1,29 +1,28 @@
-From d7730d0a5cd2cc08c53ef73f04e7d5342d8267bf Mon Sep 17 00:00:00 2001
+From 8eddcbf2e4e19376fe71217769d06c3afa4ea0d6 Mon Sep 17 00:00:00 2001
 From: Lucas Russo <lerwys@gmail.com>
-Date: Tue, 30 Aug 2016 09:06:50 -0300
-Subject: [PATCH 1/5] AuthServices,ManagementStudio: use dummy access instead
- of LDAP
+Date: Tue, 6 Sep 2016 13:17:31 -0300
+Subject: [PATCH 4/5] Revert "AuthServices,ManagementStudio: use dummy access
+ instead of LDAP"
 
-For now, it's best to use a dummy access as we don't
-have a LDAP server available.
+This reverts commit 3475a601513ba5184635a573b2a1631c5ad85f06.
 ---
  RBAC-AuthServices/pom.xml     | 6 +++---
  RBAC-ManagementStudio/pom.xml | 8 ++++----
- pom.xml                       | 7 +++----
- 3 files changed, 10 insertions(+), 11 deletions(-)
+ pom.xml                       | 7 ++++---
+ 3 files changed, 11 insertions(+), 10 deletions(-)
 
 diff --git a/RBAC-AuthServices/pom.xml b/RBAC-AuthServices/pom.xml
-index 12a1fc9..3e75929 100644
+index 3e75929..12a1fc9 100644
 --- a/RBAC-AuthServices/pom.xml
 +++ b/RBAC-AuthServices/pom.xml
 @@ -34,8 +34,8 @@
          </dependency>
          <dependency>
              <groupId>se.esss.ics.rbac</groupId>
--            <artifactId>dsaccess-ldap</artifactId>
--            <version>[2.1.0,)</version>
-+            <artifactId>dsaccess-dummy</artifactId>
-+            <version>[2.0.6,)</version>
+-            <artifactId>dsaccess-dummy</artifactId>
+-            <version>[2.0.6,)</version>
++            <artifactId>dsaccess-ldap</artifactId>
++            <version>[2.1.0,)</version>
          </dependency>
          <dependency>
              <groupId>se.esss.ics.rbac</groupId>
@@ -32,20 +31,20 @@ index 12a1fc9..3e75929 100644
          </profile>
      </profiles>
 -</project>
-\ No newline at end of file
 +</project>
+\ No newline at end of file
 diff --git a/RBAC-ManagementStudio/pom.xml b/RBAC-ManagementStudio/pom.xml
-index 6072d53..86eae7f 100644
+index 86eae7f..6072d53 100644
 --- a/RBAC-ManagementStudio/pom.xml
 +++ b/RBAC-ManagementStudio/pom.xml
 @@ -30,8 +30,8 @@
          </dependency>
          <dependency>
              <groupId>se.esss.ics.rbac</groupId>
--            <artifactId>dsaccess-ldap</artifactId>
--            <version>[2.1.0,)</version>
-+            <artifactId>dsaccess-dummy</artifactId>
-+            <version>[2.0.6,)</version>
+-            <artifactId>dsaccess-dummy</artifactId>
+-            <version>[2.0.6,)</version>
++            <artifactId>dsaccess-ldap</artifactId>
++            <version>[2.1.0,)</version>
          </dependency>
          <dependency>
              <groupId>se.esss.ics.rbac</groupId>
@@ -53,8 +52,8 @@ index 6072d53..86eae7f 100644
              <scope>provided</scope>
          </dependency>
      </dependencies>
--    
-+
+-
++    
      <build>
          <plugins>
              <plugin>
@@ -63,42 +62,42 @@ index 6072d53..86eae7f 100644
          </profile>
      </profiles>
 -</project>
-\ No newline at end of file
 +</project>
+\ No newline at end of file
 diff --git a/pom.xml b/pom.xml
-index 8e62864..ccb9b54 100644
+index ccb9b54..8e62864 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -2,12 +2,12 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
      <modelVersion>4.0.0</modelVersion>
      <description>Configuration for complete RBAC</description>
--    
-+
+-
++    
      <groupId>se.esss.ics.rbac</groupId>
      <artifactId>rbac-all</artifactId>
      <version>2.0.6</version>
      <name>RBAC</name>
--    
-+
+-
++    
      <packaging>pom</packaging>
  
      <parent>
-@@ -21,7 +21,6 @@
+@@ -21,6 +21,7 @@
          <module>RBAC-Persistence-Model</module>
          <module>RBAC-DSAccess-API</module>
          <module>RBAC-DSAccess-Dummy</module>
--        <module>RBAC-DSAccess-LDAP</module>
++        <module>RBAC-DSAccess-LDAP</module>
          <module>RBAC-JAXB</module>
          <module>RBAC-PV</module>
          <module>RBAC-PV-EPICS</module>
-@@ -34,4 +33,4 @@
+@@ -33,4 +34,4 @@
          <module>RBACDemo</module>
      </modules>
  
 -</project>
-\ No newline at end of file
 +</project>
+\ No newline at end of file
 -- 
 1.9.1
 

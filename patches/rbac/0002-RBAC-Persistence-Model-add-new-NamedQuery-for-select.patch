@@ -1,7 +1,7 @@
-From 8cc53ec0212b13304fd9de1798f57ca78f4725d7 Mon Sep 17 00:00:00 2001
+From b3419f8c30e75afc093844033854b6d5e8590d52 Mon Sep 17 00:00:00 2001
 From: Lucas Russo <lerwys@gmail.com>
 Date: Fri, 2 Sep 2016 13:54:03 -0300
-Subject: [PATCH 2/3] RBAC-Persistence-Model: add new NamedQuery for selecting
+Subject: [PATCH 2/5] RBAC-Persistence-Model: add new NamedQuery for selecting
  Resources
 
 ---

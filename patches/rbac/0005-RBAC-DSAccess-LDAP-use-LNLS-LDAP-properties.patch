@@ -1,0 +1,103 @@
+From 0915dfa0e5f7ca95d91252eb4b7ed62f96994317 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 9 Sep 2016 08:02:27 -0300
+Subject: [PATCH 5/5] RBAC-DSAccess-LDAP: use LNLS LDAP properties
+
+---
+ .../src/main/resources/ldap.properties             | 86 +++++++++++-----------
+ 1 file changed, 43 insertions(+), 43 deletions(-)
+
+diff --git a/RBAC-DSAccess-LDAP/src/main/resources/ldap.properties b/RBAC-DSAccess-LDAP/src/main/resources/ldap.properties
+index 3bebb57..009a415 100644
+--- a/RBAC-DSAccess-LDAP/src/main/resources/ldap.properties
++++ b/RBAC-DSAccess-LDAP/src/main/resources/ldap.properties
+@@ -1,43 +1,43 @@
+-# The primary and secondary LDAP hosts and ports.
+-# The service will attempt to connect to the primary, but if it fails
+-# at any time it will switch to the secondary server. Secondary server
+-# will be used until it fails; than the service will switch back to primary.
+-rbac.ldapPrimaryHost=dc01.esss.lu.se
+-rbac.ldapPrimaryPort=389
+-rbac.ldapSecondaryHost=dc02.esss.lu.se
+-rbac.ldapSecondaryPort=389
+-
+-# The timeout in milliseconds for all ldap connections
+-rbac.ldapTimeout=7000
+-
+-# The Security principal of a default user, who is allowed to perform searches on the LDAP.
+-# If anonymous searches are allowed on the server, you can remove these two settings
+-rbac.ldapSecurityPrincipal=CN\=ldapreadonly,CN\=Users,DC\=esss,DC\=lu,DC\=se
+-rbac.ldapSecurityCredentials=
+-
+-# the Dn to use for searching
+-rbac.ldapSearchName=DC\=esss,DC\=lu,DC\=se
+-# The filters to be used when searching by username, first name, and last name
+-rbac.ldapSearchFilterUsername=(sAMAccountName\={0})
+-rbac.ldapSearchFilterFirstName=(givenName\={0})
+-rbac.ldapSearchFilterLastName=(sn\={0})
+-# When doing search filter the entries with this parameter to get only the users
+-rbac.ldapSearchFilterObject=(objectCategory\=CN\=Person,CN\=Schema,CN\=Configuration,DC\=esss,DC\=lu,DC\=se)(objectClass\=user)
+-# The page size to perform searches for all users.
+-# Some servers have a hard limit of 1000 entries, which in most cases is not enough
+-# to retrieve the list of all users. By defining the page size parameter greater than 0
+-# a paged search will be performed, requesting the entries in pages of the given size.
+-rbac.ldapSearchPageSize=500
+-
+-# The attributes which contain information that the DSAccess requires. If a piece of information
+-# is not available in your LDAP, you can leave the entry blank and it will not be used
+-rbac.ldapAttrUsername=samaccountname
+-rbac.ldapAttrFirstName=givenname
+-rbac.ldapAttrMiddleName=
+-rbac.ldapAttrLastName=sn
+-rbac.ldapAttrGroup=department
+-rbac.ldapAttrGroupFilter=OU\=ESS Organisational Units,DC\=esss,DC\=lu,DC\=se
+-rbac.ldapAttrEMail=mail
+-rbac.ldapAttrPhone=telephonenumber
+-rbac.ldapAttrMobile=mobile
+-rbac.ldapAttrLocation=
++# The primary and secondary LDAP hosts and ports.
++# The service will attempt to connect to the primary, but if it fails
++# at any time it will switch to the secondary server. Secondary server
++# will be used until it fails; than the service will switch back to primary.
++rbac.ldapPrimaryHost=ad1.abtlus.org.br
++rbac.ldapPrimaryPort=389
++rbac.ldapSecondaryHost=ad2.abtlus.org.br
++rbac.ldapSecondaryPort=389
++
++# The timeout in milliseconds for all ldap connections
++rbac.ldapTimeout=7000
++
++# The Security principal of a default user, who is allowed to perform searches on the LDAP.
++# If anonymous searches are allowed on the server, you can remove these two settings
++rbac.ldapSecurityPrincipal=CN\=rbac,OU\=Users,OU=\LNLS,DC\=abtlus,DC\=org,DC\=br
++rbac.ldapSecurityCredentials=<INSERT_YOUR_LDAP_CREDENTIAL_HERE>
++
++# the Dn to use for searching
++rbac.ldapSearchName=DC\=abtlus,DC\=org,DC\=br
++# The filters to be used when searching by username, first name, and last name
++rbac.ldapSearchFilterUsername=(sAMAccountName\={0})
++rbac.ldapSearchFilterFirstName=(givenName\={0})
++rbac.ldapSearchFilterLastName=(sn\={0})
++# When doing search filter the entries with this parameter to get only the users
++rbac.ldapSearchFilterObject=(objectCategory\=CN\=Person,CN\=Schema,CN\=Configuration,DC\=abtlus,DC\=org,DC\=br)(objectClass\=user)
++# The page size to perform searches for all users.
++# Some servers have a hard limit of 1000 entries, which in most cases is not enough
++# to retrieve the list of all users. By defining the page size parameter greater than 0
++# a paged search will be performed, requesting the entries in pages of the given size.
++rbac.ldapSearchPageSize=300
++
++# The attributes which contain information that the DSAccess requires. If a piece of information
++# is not available in your LDAP, you can leave the entry blank and it will not be used
++rbac.ldapAttrUsername=samaccountname
++rbac.ldapAttrFirstName=givenname
++rbac.ldapAttrMiddleName=
++rbac.ldapAttrLastName=sn
++rbac.ldapAttrGroup=department
++rbac.ldapAttrGroupFilter=OU\=Users,OU\=LNLS,DC\=abtlus,DC\=org,DC\=br
++rbac.ldapAttrEMail=mail
++rbac.ldapAttrPhone=telephonenumber
++rbac.ldapAttrMobile=mobile
++rbac.ldapAttrLocation=
+-- 
+1.9.1
+

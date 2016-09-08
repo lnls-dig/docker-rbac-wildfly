@@ -1,7 +1,7 @@
-From f0139d2cf30adf482bb08697deed8b54e7306fe6 Mon Sep 17 00:00:00 2001
+From 0e58efeee71ad8f83c9b5bae04170d748fcda84e Mon Sep 17 00:00:00 2001
 From: Lucas Russo <lerwys@gmail.com>
 Date: Fri, 2 Sep 2016 13:54:30 -0300
-Subject: [PATCH 3/3] RBAC-AuthServices: fix invalid Named Query for retrieving
+Subject: [PATCH 3/5] RBAC-AuthServices: fix invalid Named Query for retrieving
  the Resource
 
 Previously, just the name was retrieved by the query,
