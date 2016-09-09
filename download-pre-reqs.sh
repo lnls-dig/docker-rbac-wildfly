@@ -19,7 +19,7 @@ git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-
 
 # Apply patches
 cd ${RBAC_REPO}
-git am ../patches/rbac/*
+git am --ignore-whitespace ../patches/rbac/*
 cd ..
 
 # Build Java Config
