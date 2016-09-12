@@ -37,7 +37,7 @@ elif [ "${SERVICE}" == "mgmt" ]; then
     RBAC_SERVICE_NAME=management-studio
     RBAC_DOCKER_IMAGE_NAME=rbac-management-studio
 
-    DB_NAME=rbac-management-studio-postgres
+    DB_NAME=rbac-auth-services-postgres
     DB_PORT=5432
 else
     echo "Unsupported service"
