@@ -4,6 +4,7 @@ set -a
 set -u
 
 SERVICE="$1"
+LDAP_CREDENTIALS="$2"
 
 # Source env vars
 . ./env-vars.sh ${SERVICE}
@@ -21,6 +22,9 @@ git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-
 cd ${RBAC_REPO}
 git am --ignore-whitespace ../patches/rbac/*
 cd ..
+
+# Insert LDAP Credentials
+find . -iname "*ldap.properties" -exec sed -i -e "s/<INSERT_YOUR_LDAP_CREDENTIAL_HERE>/${LDAP_CREDENTIALS}/g" '{}' \;
 
 # Build Java Config
 cd ${ESS_JAVA_CONFIG_REPO}
