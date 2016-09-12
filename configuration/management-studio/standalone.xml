@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
                 <datasource jta="false" jndi-name="java:/rbac" pool-name="RbacDS" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:postgresql://rbac-management-studio-postgres:5432/rbac</connection-url>
+                    <connection-url>jdbc:postgresql://rbac-auth-services-postgres:5432/rbac</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
                     <!-- <driver>postgresql</driver> -->
                     <driver>postgresql-9.4.1207.jar</driver>
