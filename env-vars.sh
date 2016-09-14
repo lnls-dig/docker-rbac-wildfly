@@ -15,7 +15,7 @@ RBAC_DOCKER_IMAGE_NAME=rbac-auth-services
 DB_NAME=rbac-auth-services-postgres
 DB_PORT=5432
 #NET_NAME="postgres-rbac"
-NET_NAME="dockerrbacauthservicescomposed_postgres-rbac"
+NET_NAME="dockerrbaccomposed_postgres-rbac"
 
 if [ "${SERVICE}" == "rbac" ]; then
     LOCAL_WILDFLY_PORT=8444
