@@ -21,7 +21,7 @@ git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-
 
 # Apply patches
 cd ${RBAC_REPO}
-git am --ignore-whitespace ../patches/rbac/*
+git am --ignore-whitespace /build/patches/rbac/*
 cd ..
 
 # Insert LDAP Credentials
