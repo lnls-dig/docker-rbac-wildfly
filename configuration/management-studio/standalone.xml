@@ -39,6 +39,7 @@
         <property name="rbac.secondaryServicesURL" value=" https://localhost:8443/service"/>
         <property name="rbac.secondarySSLHost" value="localhost"/>
         <property name="rbac.secondarySSLPort" value="8443"/>
+        <property name="rbac.ldapSecurityCredentials" value="LDAP_CREDENTIALS" />
     </system-properties>
     <management>
         <security-realms>

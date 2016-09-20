@@ -33,6 +33,7 @@
         <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
         <property name="rbac.default.accept.certificate" value="true"/>
         <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
+        <property name="rbac.ldapSecurityCredentials" value="LDAP_CREDENTIALS" />
     </system-properties>
     <management>
         <security-realms>
