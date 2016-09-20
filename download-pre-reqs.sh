@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -a
+set -e
 set -u
 
 SERVICE="$1"
@@ -16,7 +17,7 @@ git clone --branch=${ESS_JAVA_CONFIG_VERSION} https://bitbucket.org/europeanspal
 # Clone naming-convention-tool
 git clone --branch=${RBAC_VERSION_REPO} https://bitbucket.org/europeanspallationsource/rbac.git ${RBAC_REPO}
 # Clone wait-for-it
-git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it scripts/${WAIT_FOR_IT_REPO}
+git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it ${WAIT_FOR_IT_REPO}
 
 # Apply patches
 cd ${RBAC_REPO}
