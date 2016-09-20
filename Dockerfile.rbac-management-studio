@@ -4,8 +4,6 @@ FROM jboss/wildfly:9.0.2.Final
 
 MAINTAINER Lucas Russo
 
-ENV LDAP_CREDENTIALS <INSERT_YOUR_LDAP_CREDENTIAL_HERE>
-
 # User root user to install software
 USER root
 
@@ -44,7 +42,7 @@ WORKDIR /build
 
 # Compile application
 RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
-    /build/setup-wildfly.sh mgmt $LDAP_CREDENTIALS
+    /build/setup-wildfly.sh mgmt
 
 # Switch back to jboss user
 USER jboss
