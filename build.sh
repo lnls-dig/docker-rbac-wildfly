@@ -34,4 +34,4 @@ sed -e "s|OPTNAMESERVER|${OPTNAMESERVER}|g" \
     -e "s|ENV_RBAC_SERVICE_NAME|${RBAC_SERVICE_NAME}|g" \
     Dockerfile.ini > Dockerfile
 
-docker build -t lerwys/docker-${RBAC_DOCKER_IMAGE_NAME}-wildfly .
+docker build -t ${RBAC_DOCKER_ORG_NAME}/${RBAC_DOCKER_IMAGE_NAME} .
