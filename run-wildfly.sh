@@ -17,6 +17,6 @@ DB_PORT="$9"
 # Run Wildfly
 docker run --name ${RBAC_DOCKER_IMAGE_NAME} --net ${NET_NAME} --dns ${DNS_IP} \
     -p ${LOCAL_WILDFLY_PORT}:${WILDFLY_PORT} -p ${LOCAL_ADMIN_PORT}:${ADMIN_PORT} \
-    -d --entrypoint "/wait-for-it.sh" lerwys/docker-${RBAC_DOCKER_IMAGE_NAME}-wildfly \
+    -d --entrypoint "/docker-entrypoint.sh" lerwys/docker-${RBAC_DOCKER_IMAGE_NAME}-wildfly \
     ${DB_NAME}:${DB_PORT} -- /opt/jboss/wildfly/bin/standalone.sh \
     -b 0.0.0.0 -bmanagement 0.0.0.0

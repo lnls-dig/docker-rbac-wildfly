@@ -5,7 +5,7 @@ set -e
 set -u
 
 SERVICE="$1"
-LDAP_CREDENTIALS="$2"
+#LDAP_CREDENTIALS="$2"
 
 # Source env vars
 . ./env-vars.sh ${SERVICE}
@@ -25,7 +25,7 @@ git am --ignore-whitespace /build/patches/rbac/*
 cd ..
 
 # Insert LDAP Credentials
-find . -iname "*ldap.properties" -exec sed -i -e "s/<INSERT_YOUR_LDAP_CREDENTIAL_HERE>/${LDAP_CREDENTIALS}/g" '{}' \;
+#find . -iname "*ldap.properties" -exec sed -i -e "s/<INSERT_YOUR_LDAP_CREDENTIAL_HERE>/${LDAP_CREDENTIALS}/g" '{}' \;
 
 # Build Java Config
 cd ${ESS_JAVA_CONFIG_REPO}
@@ -34,5 +34,6 @@ cd ..
 
 # Build Naming Convention tool
 cd ${RBAC_REPO}
-mvn clean && mvn install -Dmaven.test.skip=true
+#mvn clean && mvn install -Dmaven.test.skip=true
+mvn clean && mvn install
 cd ..
