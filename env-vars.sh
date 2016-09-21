@@ -13,7 +13,7 @@ RBAC_SERVICE_PATH=RBAC-AuthServices
 RBAC_SERVICE_NAME=auth-services
 RBAC_DOCKER_ORG_NAME=lnls
 RBAC_DOCKER_RUN_NAME=rbac-auth-services
-RBAC_DOCKER_IMAGE_NAME=${RBAC_DOCKER_RUN_NAME}-wildfly
+RBAC_DOCKER_IMAGE_NAME=docker-${RBAC_DOCKER_RUN_NAME}-wildfly
 DB_NAME=rbac-auth-services-postgres
 DB_PORT=5432
 #NET_NAME="postgres-rbac"
@@ -29,7 +29,7 @@ if [ "${SERVICE}" == "rbac" ]; then
     RBAC_DOCKER_ORG_NAME=lnls
     RBAC_DOCKER_ORG_NAME=lnls
     RBAC_DOCKER_RUN_NAME=rbac-auth-services
-    RBAC_DOCKER_IMAGE_NAME=${RBAC_DOCKER_RUN_NAME}-wildfly
+    RBAC_DOCKER_IMAGE_NAME=docker-${RBAC_DOCKER_RUN_NAME}-wildfly
 
     DB_NAME=rbac-auth-services-postgres
     DB_PORT=5432
@@ -42,7 +42,7 @@ elif [ "${SERVICE}" == "mgmt" ]; then
     RBAC_SERVICE_NAME=management-studio
     RBAC_DOCKER_ORG_NAME=lnls
     RBAC_DOCKER_RUN_NAME=rbac-management-studio
-    RBAC_DOCKER_IMAGE_NAME=${RBAC_DOCKER_RUN_NAME}-wildfly
+    RBAC_DOCKER_IMAGE_NAME=docker-${RBAC_DOCKER_RUN_NAME}-wildfly
 
     DB_NAME=rbac-auth-services-postgres
     DB_PORT=5432
