@@ -24,14 +24,4 @@ else
     exit 0
 fi
 
-# Change this if your Host have a "sane" DNS like 168.192.1.1
-OPTNAMESERVER="echo nameserver 10.0.0.71 > /etc/resolv.conf \&\& \\\\"
-#OPTRBACERVER="\\\\"
-
-sed -e "s|OPTNAMESERVER|${OPTNAMESERVER}|g" \
-    -e "s|ENV_POSTGRES_VERSION|${POSTGRES_VERSION}|g" \
-    -e "s|ENV_RBAC_VERSION|${RBAC_VERSION}|g" \
-    -e "s|ENV_RBAC_SERVICE_NAME|${RBAC_SERVICE_NAME}|g" \
-    Dockerfile.ini > Dockerfile
-
 docker build -t ${RBAC_DOCKER_ORG_NAME}/${RBAC_DOCKER_IMAGE_NAME} .
