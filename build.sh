@@ -22,4 +22,4 @@ else
     exit 0
 fi
 
-docker build -t ${RBAC_DOCKER_ORG_NAME}/${RBAC_DOCKER_IMAGE_NAME} .
+docker build -t ${RBAC_DOCKER_ORG_NAME}/${RBAC_DOCKER_IMAGE_NAME} -f ${RBAC_DOCKERFILE_NAME} .
