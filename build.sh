@@ -4,11 +4,9 @@ set -a
 set -u
 set -e
 
-POSTGRES_VERSION="$1"
-RBAC_VERSION="$2"
-RBAC_TARGET_WAR="$3"
-RBAC_SERVICE_NAME="$4"
-RBAC_DOCKER_IMAGE_NAME="$5"
+SERVICE="$1"
+
+. ./env-vars.sh ${SERVICE}
 
 # Copy files to correct locations, removing existing "wars" and "jars"
 rm -f deploy/*.war
