@@ -47,6 +47,9 @@ RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
 # Copy possible entrypoint for user use
 RUN cp /build/wait-for-it/wait-for-it.sh /
 
+# Copy another entrypoint for user use
+COPY scripts/docker-entrypoint.sh /
+
 # Deploy everything
 RUN mv /deploy/* /opt/jboss/wildfly/standalone/deployments/
 
