@@ -1,0 +1,9 @@
+*~
+*.swp
+*.orig
+*.bak
+*.o
+*.d
+*.pyc
+*.a
+*.so
