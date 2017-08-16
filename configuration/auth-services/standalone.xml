@@ -387,7 +387,7 @@
             <server name="default-server">
                 <http-listener name="default" socket-binding="http"/>
                 <https-listener name="https" socket-binding="https" security-realm="UndertowRealm"/>
-                <host name="rbac" alias="rbac-auth-services, localhost, 10.0.7.55, 10.0.21.122">
+                <host name="rbac" alias="rbac-auth-services, sirius-rbac-auth.lnls.br, localhost, 10.0.7.55">
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
                 </host>

@@ -33,8 +33,8 @@
         <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
         <property name="rbac.default.accept.certificate" value="true"/>
         <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
-        <property name="rbac.primaryServicesURL" value=" https://rbac-auth-services:8443/service"/>
-        <property name="rbac.primarySSLHost" value="rbac-auth-services"/>
+        <property name="rbac.primaryServicesURL" value=" https://sirius-rbac-auth.lnls.br:8443/service"/>
+        <property name="rbac.primarySSLHost" value="sirius-rbac-auth.lnls.br"/>
         <property name="rbac.primarySSLPort" value="8443"/>
         <property name="rbac.secondaryServicesURL" value=" https://localhost:8443/service"/>
         <property name="rbac.secondarySSLHost" value="localhost"/>
@@ -393,7 +393,7 @@
             <server name="default-server">
                 <http-listener name="default" socket-binding="http"/>
                 <https-listener name="https" socket-binding="https" security-realm="UndertowRealm"/>
-                <host name="rbac" alias="rbac-management-services, localhost, 10.0.7.55, 10.0.21.122">
+                <host name="rbac" alias="rbac-management-services, sirius-rbac.lnls.br, localhost, 10.0.7.55">
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
                 </host>
